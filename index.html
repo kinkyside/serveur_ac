@@ -74,15 +74,19 @@
                     [
                         createdAt,
                         item.nickname,
-                        item.url,
+                        `<a href="${item.url}" target="_blank">${item.url}</a>`,
                         item.identity,
                         item.localization,
                         item.gender,
                         item.role,
                         item.orientation
-                    ].forEach(value => {
+                    ].forEach((value, index) => {
                         const td = document.createElement('td');
-                        td.textContent = value;
+                        if (index === 2) { // URL column
+                            td.innerHTML = value;
+                        } else {
+                            td.textContent = value;
+                        }
                         row.appendChild(td);
                     });
 
