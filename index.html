@@ -8,6 +8,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
         }
         table {
             width: 100%;
@@ -15,14 +17,39 @@
             margin-top: 20px;
         }
         table, th, td {
-            border: 1px solid #ccc;
+            border: 1px solid #333;
         }
         th, td {
             padding: 8px;
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #1e1e1e;
+        }
+        tr:nth-child(even) {
+            background-color: #181818;
+        }
+        tr:nth-child(odd) {
+            background-color: #242424;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        button {
+            background-color: #333;
+            color: #e0e0e0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #444;
+        }
+        a {
+            color: #1e90ff;
+        }
+        a:hover {
+            color: #46a0fc;
         }
     </style>
 </head>
@@ -45,7 +72,7 @@
                 const data = await response.json();
 
                 // Trier les données par created_at décroissant
-                data.sort((a, b) => b.created_at - a.created_at);
+                data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
                 // Créer le tableau HTML
                 const table = document.createElement('table');
