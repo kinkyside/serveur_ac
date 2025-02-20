@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Xano Display</title>
+    <title>API Xano Display - Dark Mode</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,6 +15,8 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background-color: #1e1e1e;
+            color: #ffffff;
         }
         table, th, td {
             border: 1px solid #333;
@@ -24,32 +26,20 @@
             text-align: left;
         }
         th {
-            background-color: #1e1e1e;
-        }
-        tr:nth-child(even) {
-            background-color: #181818;
-        }
-        tr:nth-child(odd) {
-            background-color: #242424;
-        }
-        h1 {
-            color: #ffffff;
+            background-color: #333;
         }
         button {
             background-color: #333;
             color: #e0e0e0;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             cursor: pointer;
         }
         button:hover {
             background-color: #444;
         }
         a {
-            color: #1e90ff;
-        }
-        a:hover {
-            color: #46a0fc;
+            color: #4db8ff;
         }
     </style>
 </head>
@@ -72,7 +62,7 @@
                 const data = await response.json();
 
                 // Trier les données par created_at décroissant
-                data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                data.sort((a, b) => b.created_at - a.created_at);
 
                 // Créer le tableau HTML
                 const table = document.createElement('table');
